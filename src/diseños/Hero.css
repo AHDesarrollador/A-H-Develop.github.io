@@ -1,0 +1,325 @@
+/* ─── Hero section ───────────────────────────────────────── */
+
+.hero {
+  min-height: 100vh;
+  padding: clamp(6rem, 12vw, 9rem) 0 4rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Background glows ──────────────────────────────────── */
+.hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero__glow--lime {
+  top: 15%;
+  right: -10%;
+  width: clamp(300px, 50vw, 700px);
+  height: clamp(300px, 50vw, 700px);
+  background: radial-gradient(circle, rgba(197, 255, 46, 0.07) 0%, transparent 70%);
+}
+
+.hero__glow--red {
+  bottom: 10%;
+  left: -5%;
+  width: clamp(200px, 30vw, 400px);
+  height: clamp(200px, 30vw, 400px);
+  background: radial-gradient(circle, rgba(255, 59, 46, 0.05) 0%, transparent 70%);
+}
+
+/* ─── Layout grid ───────────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Left column ───────────────────────────────────────── */
+.hero__badge {
+  margin-bottom: 1.5rem;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 7.5vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+
+.hero__title-line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero__title-word {
+  display: inline-block;
+  color: var(--white);
+}
+
+.hero__title-word--accent {
+  color: var(--lime);
+}
+
+.hero__subtitle {
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+}
+
+.hero__subtitle em {
+  font-style: normal;
+  color: var(--white);
+}
+
+.hero__subtitle strong {
+  font-weight: 400;
+  color: var(--lime);
+}
+
+.hero__cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Stats ─────────────────────────────────────────────── */
+.hero__stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.hero__stat-val {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: var(--lime);
+  line-height: 1;
+}
+
+.hero__stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Product mockup ────────────────────────────────────── */
+.mockup {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* Arrow */
+.mockup__arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mockup__arrow-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  font-weight: 700;
+  font-size: 1rem;
+  animation: dotPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.mockup__arrow-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--lime);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Video preview panel */
+.mockup__video {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mockup__video-titlebar {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mockup__video-filename {
+  margin-left: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.mockup__video-canvas {
+  position: relative;
+  background: #050508;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Orbit animation */
+.mockup__orbit-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup__orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.mockup__orbit-ring--outer {
+  width: 116px;
+  height: 116px;
+  border: 1px dashed rgba(197, 255, 46, 0.2);
+}
+
+.mockup__orbit-ring--inner {
+  width: 76px;
+  height: 76px;
+  border: 1px dashed rgba(197, 255, 46, 0.15);
+}
+
+.mockup__orbit-center {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 16px var(--lime);
+  z-index: 2;
+}
+
+.mockup__orbit-dot {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.mockup__orbit-dot--lime {
+  width: 8px;
+  height: 8px;
+  background: var(--lime);
+  margin-top: -4px;
+  margin-left: -4px;
+  animation: orbit 2.5s linear infinite;
+}
+
+.mockup__orbit-dot--blue {
+  width: 6px;
+  height: 6px;
+  background: #81d8ff;
+  margin-top: -3px;
+  margin-left: -3px;
+  animation: orbitOuter 4s linear infinite reverse;
+}
+
+.mockup__scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(197, 255, 46, 0.4), transparent);
+  animation: scanline 2.5s linear infinite;
+}
+
+/* Video controls */
+.mockup__controls {
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.mockup__controls-play {
+  color: var(--lime);
+  font-size: 0.65rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mockup__controls-progress {
+  flex: 1;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mockup__controls-bar {
+  height: 100%;
+  background: var(--lime);
+  border-radius: 2px;
+  animation: progressFill 3s ease-out forwards;
+}
+
+.mockup__controls-time {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Code line indentation helper */
+.code-line {
+  /* indent set via CSS custom property */
+  padding-left: calc(var(--indent, 0) * 1.2em);
+}
+
+.mockup__code-body {
+  padding: 0.9rem 1rem;
+  line-height: 1.8;
+  font-size: 0.72rem;
+}

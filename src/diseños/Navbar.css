@@ -1,0 +1,194 @@
+/* ─── Navbar ─────────────────────────────────────────────── */
+
+@keyframes navSlideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease,
+              border-color 0.3s ease, box-shadow 0.3s ease;
+  animation: navSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.navbar--scrolled {
+  background: rgba(7, 7, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.5);
+}
+
+.navbar--top {
+  background: linear-gradient(180deg, rgba(7, 7, 10, 0.75) 0%, transparent 100%);
+  border-bottom: 1px solid transparent;
+}
+
+/* ─── Inner nav ─────────────────────────────────────────── */
+.navbar__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ─── Logo ──────────────────────────────────────────────── */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.navbar__logo-mark {
+  width: 32px;
+  height: 32px;
+  background: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  flex-shrink: 0;
+}
+
+.navbar__logo-icon {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--black);
+}
+
+.navbar__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.navbar__logo-accent {
+  color: var(--lime);
+}
+
+/* ─── Desktop links ─────────────────────────────────────── */
+.navbar__links {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .navbar__links {
+    display: flex;
+  }
+}
+
+.navbar__link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(242, 237, 228, 0.7);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--lime);
+}
+
+/* ─── Desktop CTA ───────────────────────────────────────── */
+.navbar__cta-wrap {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .navbar__cta-wrap {
+    display: flex;
+  }
+}
+
+.navbar__cta {
+  font-size: 0.78rem !important;
+  padding: 0.6rem 1.4rem !important;
+}
+
+/* ─── Hamburger ─────────────────────────────────────────── */
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .navbar__hamburger {
+    display: none;
+  }
+}
+
+.navbar__hamburger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+  transition: all 0.25s ease;
+}
+
+.navbar__hamburger-line--hidden {
+  background: transparent;
+}
+
+.navbar__hamburger-line--top-open {
+  transform: rotate(45deg) translate(3px, 3px);
+}
+
+.navbar__hamburger-line--bot-open {
+  transform: rotate(-45deg) translate(3px, -3px);
+}
+
+/* ─── Mobile menu ───────────────────────────────────────── */
+.navbar__mobile-menu {
+  background: rgba(7, 7, 10, 0.98);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 2rem;
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 0.75rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.navbar__mobile-link:hover {
+  color: var(--lime);
+}
+
+.navbar__mobile-cta {
+  margin-top: 1.5rem;
+  width: 100%;
+  justify-content: center;
+  font-size: 0.85rem !important;
+}

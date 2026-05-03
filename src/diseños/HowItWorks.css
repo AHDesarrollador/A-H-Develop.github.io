@@ -1,0 +1,148 @@
+/* ─── HowItWorks section ─────────────────────────────────── */
+
+.how-section {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  position: relative;
+}
+
+.how__separator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+.how__header {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.how__label {
+  margin-bottom: 1.2rem;
+}
+
+.how__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.how__title-line {
+  display: block;
+}
+
+.how__title-line--accent {
+  color: var(--lime);
+}
+
+/* ─── Steps grid ────────────────────────────────────────── */
+.how__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+/* ─── Step card ─────────────────────────────────────────── */
+.step-card {
+  background: var(--black);
+  padding: clamp(1.8rem, 3vw, 2.5rem);
+  position: relative;
+  cursor: default;
+  transition: background 0.3s ease;
+}
+
+.step-card:hover {
+  background: var(--surface);
+}
+
+.step-card:hover .step-line {
+  transform: scaleX(1);
+}
+
+/* ─── Step number ───────────────────────────────────────── */
+.step-num {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border);
+  transition: -webkit-text-stroke-color 0.4s ease;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.step-card:hover .step-num {
+  -webkit-text-stroke-color: var(--lime);
+}
+
+@media (max-width: 768px) {
+  .step-num {
+    font-size: 3.5rem;
+  }
+}
+
+/* ─── Step icon ─────────────────────────────────────────── */
+.step__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: var(--lime-dim);
+  border: 1px solid rgba(197, 255, 46, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime);
+  margin-bottom: 1.2rem;
+}
+
+/* ─── Step text ─────────────────────────────────────────── */
+.step__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+
+.step__desc {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+/* ─── Step tag ──────────────────────────────────────────── */
+.step__tag {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: var(--lime-dim);
+  border: 1px solid rgba(197, 255, 46, 0.25);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--lime);
+  letter-spacing: 0.08em;
+}
+
+/* ─── Step bottom accent line ───────────────────────────── */
+.step-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
