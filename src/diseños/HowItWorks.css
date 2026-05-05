@@ -1,0 +1,370 @@
+/* ─── HowItWorks section ─────────────────────────────────── */
+
+.how-section {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  position: relative;
+}
+
+.how__separator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+.how__header {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.how__label {
+  margin-bottom: 1.2rem;
+}
+
+.how__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.how__title-line {
+  display: block;
+}
+
+.how__title-line--accent {
+  color: var(--lime);
+}
+
+/* ─── Steps grid ────────────────────────────────────────── */
+.how__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+/* ─── Step card ─────────────────────────────────────────── */
+.step-card {
+  background: var(--black);
+  padding: clamp(1.8rem, 3vw, 2.5rem);
+  position: relative;
+  cursor: default;
+  transition: background 0.3s ease;
+}
+
+.step-card:hover {
+  background: var(--surface);
+}
+
+.step-card:hover .step-line {
+  transform: scaleX(1);
+}
+
+/* ─── Step number ───────────────────────────────────────── */
+.step-num {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border);
+  transition: -webkit-text-stroke-color 0.4s ease;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.step-card:hover .step-num {
+  -webkit-text-stroke-color: var(--lime);
+}
+
+@media (max-width: 768px) {
+  .step-num {
+    font-size: 3.5rem;
+  }
+}
+
+/* ─── Step icon ─────────────────────────────────────────── */
+.step__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: var(--lime-dim);
+  border: 1px solid rgba(197, 255, 46, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lime);
+  margin-bottom: 1.2rem;
+}
+
+/* ─── Step text ─────────────────────────────────────────── */
+.step__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+
+.step__desc {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+/* ─── Step tag ──────────────────────────────────────────── */
+.step__tag {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: var(--lime-dim);
+  border: 1px solid rgba(197, 255, 46, 0.25);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--lime);
+  letter-spacing: 0.08em;
+}
+
+/* ─── Step bottom accent line ───────────────────────────── */
+.step-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+/* ─── Funcionamiento interno ────────────────────────────── */
+.how__internals {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.how__internals-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.how__internals-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-top: 1.2rem;
+}
+
+/* ─── Phases ────────────────────────────────────────────── */
+.how__phases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+.how__phase-card {
+  background: var(--black);
+  padding: clamp(1.6rem, 2.5vw, 2.2rem);
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.how__phase-card:hover {
+  background: var(--surface);
+}
+
+.how__phase-card:hover .how__phase-line {
+  transform: scaleX(1);
+}
+
+.how__phase-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.how__phase-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border);
+  transition: -webkit-text-stroke-color 0.4s ease;
+  user-select: none;
+}
+
+.how__phase-card:hover .how__phase-num {
+  -webkit-text-stroke-color: var(--lime);
+}
+
+.how__phase-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--lime);
+}
+
+.how__phase-desc {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.how__phase-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+/* ─── Detection table ───────────────────────────────────── */
+.how__detect-block {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.how__detect-title {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--lime);
+}
+
+.how__table-wrap {
+  overflow-x: auto;
+}
+
+.how__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.77rem;
+}
+
+.how__table th {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--lime);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.how__table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.how__table tr:hover td {
+  background: var(--surface);
+}
+
+.how__table-type {
+  color: var(--white);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ─── Tech details grid ─────────────────────────────────── */
+.how__tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+
+@media (max-width: 768px) {
+  .how__tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.how__tech-card {
+  background: var(--black);
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.how__tech-card-title {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--lime);
+  margin-bottom: 1.2rem;
+}
+
+.how__tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.how__tech-list li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--muted);
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.how__tech-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--lime);
+}
+
+.how__tech-list li strong {
+  color: var(--white);
+}
+
+.how__tech-list li code {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--lime);
+  background: var(--lime-dim);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
