@@ -153,7 +153,7 @@ export default function Hero() {
             </h1>
 
             <p ref={subtitleRef} className="hero__subtitle">
-              CodeReel captura cada fotograma de tus animaciones{' '}
+              RenderCast captura cada fotograma de tus animaciones{' '}
               <em>HTML</em> y <em>React</em> y las convierte en archivos{' '}
               <strong>MP4</strong> de alta calidad. Sin navegadores visibles, sin grabación de pantalla.
             </p>

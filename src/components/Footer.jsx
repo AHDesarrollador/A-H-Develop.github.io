@@ -10,13 +10,13 @@ export default function Footer() {
             <span className="footer__logo-icon">▶</span>
           </div>
           <span className="footer__logo-text">
-            Code<span className="footer__logo-accent">Reel</span>
+            Render<span className="footer__logo-accent">Cast</span>
           </span>
         </div>
 
         {/* Copyright */}
         <p className="footer__copyright">
-          © {new Date().getFullYear()} CodeReel — MIT License
+          © {new Date().getFullYear()} RenderCast — MIT License
         </p>
 
         {/* Links */}

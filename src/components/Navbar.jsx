@@ -12,9 +12,11 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { href: '#como-funciona', label: '¿Cómo funciona?' },
-    { href: '#instalacion',   label: 'Instalación' },
-    { href: '#comunidad',     label: 'Comunidad' },
+    { href: '#que-es',           label: '¿Qué es?' },
+    { href: '#como-funciona',    label: '¿Cómo funciona?' },
+    { href: '#guia-instalacion', label: 'Instalación' },
+    { href: '#futuro',           label: 'Roadmap' },
+    { href: '#comunidad',        label: 'Comunidad' },
   ];
 
   return (
@@ -26,7 +28,7 @@ export default function Navbar() {
             <span className="navbar__logo-icon">▶</span>
           </div>
           <span className="navbar__logo-text">
-            Code<span className="navbar__logo-accent">Reel</span>
+            Render<span className="navbar__logo-accent">Cast</span>
           </span>
         </a>
 

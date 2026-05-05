@@ -63,7 +63,7 @@ export default function Social() {
           </h2>
 
           <p className="social__desc">
-            CodeReel es open source. Reporta bugs, propón features, o simplemente
+            RenderCast es open source. Reporta bugs, propón features, o simplemente
             sigue el proyecto para enterarte de las novedades.
           </p>
 

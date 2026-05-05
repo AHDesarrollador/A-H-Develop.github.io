@@ -1,0 +1,272 @@
+/* ─── InstallGuide section ───────────────────────────────── */
+
+.ig-section {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  position: relative;
+}
+
+.ig__sep {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+
+.ig__header {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.ig__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-top: 1.2rem;
+}
+
+.ig__title-line { display: block; }
+.ig__title-accent { color: var(--lime); }
+
+/* ─── Timeline ──────────────────────────────────────────── */
+
+.ig__timeline {
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.ig-step {
+  display: flex;
+  gap: clamp(1.2rem, 3vw, 2rem);
+}
+
+.ig-step__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ig-step__bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--lime-dim);
+  border: 1px solid rgba(197, 255, 46, 0.3);
+  color: var(--lime);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ig-step__line {
+  width: 1px;
+  flex: 1;
+  min-height: 1.5rem;
+  background: var(--border);
+  margin: 0.5rem 0;
+}
+
+.ig-step__body {
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  flex: 1;
+  min-width: 0;
+}
+
+.ig-step__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 0.9rem;
+}
+
+/* ─── Step content helpers ──────────────────────────────── */
+
+.ig-step__content {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.ig-step__content p { margin-bottom: 0.7rem; }
+.ig-step__content p:last-child { margin-bottom: 0; }
+.ig-step__content strong { color: var(--white); }
+.ig-step__content em    { color: var(--white); font-style: normal; }
+
+.ig-step__content code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.12rem 0.45rem;
+  border-radius: 3px;
+  font-size: 0.76rem;
+  color: var(--lime);
+}
+
+/* ─── File badge ────────────────────────────────────────── */
+
+.ig-file-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid rgba(197, 255, 46, 0.22);
+  border-radius: 4px;
+  padding: 0.55rem 1rem;
+  margin: 0.6rem 0;
+  color: var(--lime);
+}
+
+.ig-file-badge__name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--lime);
+}
+
+/* ─── External link ─────────────────────────────────────── */
+
+.ig-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--lime);
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.ig-link:hover { opacity: 1; }
+
+/* ─── Note ──────────────────────────────────────────────── */
+
+.ig-note {
+  font-size: 0.74rem !important;
+  color: var(--muted) !important;
+  border-left: 2px solid var(--border);
+  padding-left: 0.75rem;
+  margin-top: 0.75rem;
+  line-height: 1.7;
+}
+
+/* ─── Warning box ───────────────────────────────────────── */
+
+.ig-warning {
+  display: flex;
+  gap: 0.9rem;
+  background: rgba(255, 59, 46, 0.05);
+  border: 1px solid rgba(255, 59, 46, 0.2);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  margin: 0.7rem 0;
+}
+
+.ig-warning__icon { font-size: 1.1rem; flex-shrink: 0; line-height: 1.6; }
+
+.ig-warning__title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cinered);
+  margin-bottom: 0.4rem;
+}
+
+.ig-warning__steps {
+  padding-left: 1.2rem;
+  list-style: decimal;
+}
+
+.ig-warning__steps li { margin-bottom: 0.25rem; }
+
+/* ─── Ordered / unordered list ──────────────────────────── */
+
+.ig-list {
+  padding-left: 1.3rem;
+  list-style: disc;
+  margin: 0.6rem 0;
+}
+
+.ig-list li {
+  margin-bottom: 0.45rem;
+  color: var(--muted);
+}
+
+.ig-list strong { color: var(--white); }
+.ig-list em     { color: var(--white); font-style: normal; }
+
+.ig-list code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.74rem;
+  color: var(--lime);
+}
+
+/* ─── Shortcuts ─────────────────────────────────────────── */
+
+.ig-shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.7rem 0;
+}
+
+.ig-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.ig-shortcut__key {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.65rem;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.ig-shortcut__arrow { color: var(--border); font-size: 0.9rem; }
+
+.ig-shortcut__label { font-size: 0.8rem; color: var(--muted); }
+.ig-shortcut__label em { color: var(--lime); font-style: normal; }
+
+/* ─── Uninstall box ─────────────────────────────────────── */
+
+.ig__uninstall {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.ig__uninstall-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ig__uninstall .ig-note { margin-top: 1rem; }
