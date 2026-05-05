@@ -19,7 +19,7 @@ const steps = [
       </svg>
     ),
     title: 'Abre la aplicación',
-    desc: 'Instala HTML to MP4 desde GitHub y ábrela desde tu escritorio. La interfaz gráfica te recibe con un diseño limpio y sin configuraciones previas.',
+    desc: 'Instala RenderCast desde GitHub y ábrela desde tu escritorio. La interfaz gráfica te recibe con un diseño limpio y sin configuraciones previas.',
     tag: 'Interfaz visual',
   },
   {
@@ -31,9 +31,9 @@ const steps = [
         <path d="M10 14l2 2-2 2M13 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'Carga tu animación',
-    desc: 'Arrastra tu archivo HTML o JSX directo al panel de la app, o usa el botón "Abrir archivo". La previsualización de tu animación se carga al instante.',
-    tag: 'HTML / JSX / React',
+    title: 'Carga tu proyecto',
+    desc: 'Arrastra tu carpeta de proyecto (HTML, JSX, Next.js o Remotion) al panel de la app. La previsualización de tu animación se carga al instante.',
+    tag: 'HTML / JSX / React / Next.js',
   },
   {
     num: '03',
@@ -63,10 +63,52 @@ const steps = [
   },
 ];
 
+const phases = [
+  {
+    num: '01',
+    name: 'BUILD',
+    desc: 'Detecta el tipo de proyecto → instala dependencias → compila → levanta servidor HTTP local',
+  },
+  {
+    num: '02',
+    name: 'CAPTURE',
+    desc: 'Abre el navegador en modo headless → congela el reloj virtual del DOM → avanza el tiempo cuadro a cuadro → captura cada frame como PNG',
+  },
+  {
+    num: '03',
+    name: 'ENCODE',
+    desc: 'Toma todos los PNG de la carpeta temporal → codifica con FFmpeg (H.264, CRF 18) → guarda el MP4 final → limpia los archivos temporales',
+  },
+];
+
+const detectionRows = [
+  {
+    type: 'Remotion',
+    condition: 'package.json contiene remotion o @remotion/*',
+    strategy: 'Delega el render a npx remotion render. No usa captura de frames.',
+  },
+  {
+    type: 'React / Vite',
+    condition: 'package.json tiene un script build',
+    strategy: 'npm install → npm run build → sirve dist/ con Express → captura frames',
+  },
+  {
+    type: 'HTML estático',
+    condition: 'Sin package.json o sin script build',
+    strategy: 'Sirve directamente la carpeta → captura frames',
+  },
+  {
+    type: 'Next.js',
+    condition: 'package.json contiene next en dependencias',
+    strategy: 'Parcha next.config.js para output: export → construye → sirve out/',
+  },
+];
+
 export default function HowItWorks() {
-  const sectionRef = useRef(null);
-  const titleRef   = useRef(null);
-  const cardsRef   = useRef([]);
+  const sectionRef   = useRef(null);
+  const titleRef     = useRef(null);
+  const cardsRef     = useRef([]);
+  const internalsRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -95,6 +137,20 @@ export default function HowItWorks() {
           },
         });
       });
+
+      if (internalsRef.current) {
+        gsap.from(internalsRef.current.children, {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.1,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: internalsRef.current,
+            start: 'top 85%',
+          },
+        });
+      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -128,6 +184,76 @@ export default function HowItWorks() {
               <div className="step-line" aria-hidden="true" />
             </div>
           ))}
+        </div>
+
+        {/* ─── Funcionamiento interno ─────────────────────── */}
+        <div ref={internalsRef} className="how__internals">
+          <div className="how__internals-header">
+            <div className="section-label how__label">Técnico</div>
+            <h3 className="how__internals-title">FUNCIONAMIENTO INTERNO</h3>
+          </div>
+
+          {/* Phases */}
+          <div className="how__phases">
+            {phases.map((phase) => (
+              <div key={phase.num} className="how__phase-card">
+                <div className="how__phase-badge">
+                  <span className="how__phase-num">{phase.num}</span>
+                  <span className="how__phase-name">{phase.name}</span>
+                </div>
+                <p className="how__phase-desc">{phase.desc}</p>
+                <div className="how__phase-line" aria-hidden="true" />
+              </div>
+            ))}
+          </div>
+
+          {/* Detection table */}
+          <div className="how__detect-block">
+            <div className="how__detect-title">Detección automática del tipo de proyecto</div>
+            <div className="how__table-wrap">
+              <table className="how__table">
+                <thead>
+                  <tr>
+                    <th>Tipo de proyecto</th>
+                    <th>Condición de detección</th>
+                    <th>Estrategia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {detectionRows.map((row) => (
+                    <tr key={row.type}>
+                      <td className="how__table-type">{row.type}</td>
+                      <td>{row.condition}</td>
+                      <td>{row.strategy}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Tech details */}
+          <div className="how__tech-grid">
+            <div className="how__tech-card">
+              <div className="how__tech-card-title">Captura de frames</div>
+              <ul className="how__tech-list">
+                <li>En la <strong>app de escritorio</strong>, se usa la API nativa de Electron (<code>capturePage()</code>).</li>
+                <li>En la <strong>CLI</strong>, se usa Puppeteer (Chromium embebido).</li>
+                <li>Se usa Chrome DevTools Protocol (<code>Emulation.setVirtualTimePolicy</code>) para congelar y avanzar el tiempo virtual del DOM, garantizando que CSS animations, <code>requestAnimationFrame</code>, <code>setTimeout</code> y <code>Date.now()</code> se mueven exactamente un intervalo de frame por captura.</li>
+                <li>Los canvas WebGL son compatibles gracias a un parche de <code>getContext()</code> que fuerza <code>preserveDrawingBuffer: true</code>.</li>
+              </ul>
+            </div>
+            <div className="how__tech-card">
+              <div className="how__tech-card-title">Codificación de video</div>
+              <ul className="how__tech-list">
+                <li>Codec: <strong>H.264</strong> (<code>libx264</code>)</li>
+                <li>Espacio de color: <code>yuv420p</code> — máxima compatibilidad con reproductores</li>
+                <li>Calidad: <strong>CRF 18</strong> — alta calidad visual, tamaño razonable</li>
+                <li>Preset: <code>fast</code></li>
+                <li>FFmpeg está incluido en la aplicación (<code>ffmpeg-static</code>). No se necesita instalación separada.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

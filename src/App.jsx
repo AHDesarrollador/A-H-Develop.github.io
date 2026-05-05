@@ -2,6 +2,7 @@ import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import Marquee from './components/Marquee.jsx';
 import WhatIs from './components/WhatIs.jsx';
+import WhatIs from './components/WhatIs.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
 import InternalDetails from './components/InternalDetails.jsx';
 import Download from './components/Download.jsx';
@@ -19,6 +20,7 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
+        <WhatIs />
         <WhatIs />
         <HowItWorks />
         <InternalDetails />

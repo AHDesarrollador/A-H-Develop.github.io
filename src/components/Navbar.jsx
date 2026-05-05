@@ -29,6 +29,7 @@ export default function Navbar() {
           </div>
           <span className="navbar__logo-text">
             Render<span className="navbar__logo-accent">Cast</span>
+            Render<span className="navbar__logo-accent">Cast</span>
           </span>
         </a>
 

@@ -172,8 +172,8 @@ export default function Hero() {
 
             <div className="hero__stats">
               {[
-                { val: '60fps', label: 'Máx. framerate' },
-                { val: '4K',    label: 'Max. Resolución' },
+                { val: '24fps', label: 'Máx. framerate' },
+                { val: '1080p',    label: 'Max. Resolución' },
                 { val: 'GUI & CLI',   label: 'Con GUI' },
               ].map(({ val, label }) => (
                 <div key={val}>
