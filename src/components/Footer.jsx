@@ -11,13 +11,11 @@ export default function Footer() {
           </div>
           <span className="footer__logo-text">
             Render<span className="footer__logo-accent">Cast</span>
-            Render<span className="footer__logo-accent">Cast</span>
           </span>
         </div>
 
         {/* Copyright */}
         <p className="footer__copyright">
-          © {new Date().getFullYear()} RenderCast — MIT License
           © {new Date().getFullYear()} RenderCast — MIT License
         </p>
 
