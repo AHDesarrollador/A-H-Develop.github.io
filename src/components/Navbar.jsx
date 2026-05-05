@@ -26,7 +26,11 @@ export default function Navbar() {
             <span className="navbar__logo-icon">▶</span>
           </div>
           <span className="navbar__logo-text">
+<<<<<<< HEAD
             Render<span className="navbar__logo-accent">Cast</span>
+=======
+            Code<span className="navbar__logo-accent">Reel</span>
+>>>>>>> e69ed524ebc07fd82d2b94e5eaa0ff8cf8298032
           </span>
         </a>
 
